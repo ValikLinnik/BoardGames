@@ -4,7 +4,7 @@ using System.Collections;
 using System.Linq;
 using Random = UnityEngine.Random;
 
-public static class ExtentionsMethods
+public static class ExtensionMethods
 {
     public static bool IsNull(this object obj)
     {

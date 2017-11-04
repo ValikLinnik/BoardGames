@@ -1,0 +1,3 @@
+[submodule "Assets/C#/Extension"]
+	path = "Assets/C#/Extension"
+	url = https://github.com/ValikLinnik/Extension.git
