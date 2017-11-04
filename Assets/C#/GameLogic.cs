@@ -6,6 +6,9 @@ public class GameLogic : MonoBehaviour
     [SerializeField]
     private int _playerQuantity = 2;
 
+    [SerializeField]
+    private Rect _rect;
+
     #region PRIVATE FIELDS
 
     private CardsPocket _cardsPocket;
@@ -16,7 +19,7 @@ public class GameLogic : MonoBehaviour
 
     private void OnGUI()
     {
-        if(GUI.Button(new Rect(10,10,100,30), _isGameOn ? "ReStart" : "Start"))
+        if(GUI.Button(_rect, _isGameOn ? "ReStart" : "Start"))
         {
             if(_isGameOn) EndGame();
             StartGame();
