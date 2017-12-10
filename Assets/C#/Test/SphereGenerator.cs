@@ -26,7 +26,7 @@ public class SphereGenerator : MonoBehaviour
 
     private void Start()
     {
-        GenerateSphere();       
+        GenerateSphere();   
     }
 
     private void OnGUI()
@@ -188,18 +188,24 @@ public class SphereGenerator : MonoBehaviour
         {
             if(!item || item.activeSelf || !item.CompareTag(strType)) continue;
             item.SetActive(true);
+
             item.transform.localPosition = position;
             item.transform.forward = position - transform.position;
+
             return;
         }
 
         var temp = GameObject.CreatePrimitive(_type);
+        temp.AddComponent<SphereComponent>();
+
         temp.tag = strType;
-        temp.transform.localPosition = position;
         temp.transform.parent = transform;
-        temp.transform.forward = position - transform.position;
         var renderer = temp.GetComponent<Renderer>();
         if(renderer) renderer.material = _material;
+
+        temp.transform.localPosition = position;
+        temp.transform.forward = position - transform.position;
+
         _pool.Add(temp);
     }
 
